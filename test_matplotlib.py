@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+
+print("######### demo1：plt.show #########")
 """
 生成数据
 """
@@ -19,11 +21,15 @@ plt.legend() # 图例
 # plt.show()
 
 
+print("######### demo2：plt.imshow #########")
 """
 读取图片
 """
 from matplotlib.image import imread
-img = imread('./images/deepseek.png')
+
+#(dl) PS C:\VsCode\py> python .\test_matplotlib.py
+# 命令在哪里执行，哪里就是根目录
+img = imread('images/matplotlib/deepseek.png')
 
 plt.imshow(img)
 plt.show()

@@ -3,14 +3,21 @@ import numpy as np
 # 参考资料：https://www.hahack.com/math/math-matrix
 
 # 例子
-# a = np.matrix([[5,2,7],[1,3,4]])
+a = np.matrix([[5,2,7],[1,3,4]])
 # a = np.matrix('5 2 7;1 3 4')
 
 # b = np.matrix([[5,2,7,6],[1,3,4,2],[8,2,-2,3]])
 # b = np.matrix('5 2 7 6;1 3 4 2;8 2 -2 3')
+print(a)
+print(type(a)) # <class 'numpy.matrix'>
 
-# print(type(a)) # <class 'numpy.matrix'>
+# [[5 2 7]
+#  [1 3 4]]
 # b = a.getA()
+# [5 2 7 1 3 4]
+# b1 = a.getA1()
+
+
 # print(type(b)) # <class 'numpy.ndarray'>
 
 # print(a[1,1]) # 1
