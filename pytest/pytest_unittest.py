@@ -17,7 +17,18 @@ which is not the same as the test file we want to collect:
 HINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules
 ```
 """
+import pytest
 
-# 方法名必须以test开头
-def test_print_hello():
-    print("hello world")
+# 类名必须是Test开头
+class TestA:
+    # 方法名必须以test开头
+    def test_a(self):
+        print("a")
+
+class TestB:
+    # 方法名必须以test开头
+    def test_b(self):
+        print("b")
+
+if __name__ == '__main__':
+    pytest.main([__file__])
