@@ -30,6 +30,9 @@ uv 0.10.2 (a788db7e5 2026-02-10)
 ## 管理 Python 版本
 ```shell
 # 安装特定版本的 Python
+说明：
+cpython是官方Python。这个解释器是用C语言开发的，所以叫CPython，是最广泛的Python解释器。
+pypy是另一个Python解释器，它的目标是执行速度。PyPy采用JIT技术，对Python代码进行动态编译（注意不是解释），所以可以显著提高Python代码的执行速度。
 
 PS C:\Users\admin> uv python list
 cpython-3.15.0a5-windows-x86_64-none                 <download available>
