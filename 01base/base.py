@@ -199,7 +199,7 @@ def list_tuple():
 
 def list_slice():
     """
-    切片
+    知识点：切片
     :return:
     """
     L = list(range(100))  # 列表生成

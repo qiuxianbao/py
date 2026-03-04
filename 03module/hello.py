@@ -13,6 +13,9 @@ __author__ = 'Michael'
 在Python中，一个.py文件就称之为一个模块（Module）
 为了避免模块名冲突，Python又引入了按目录来组织模块的方法，称为包（Package）
 
+python内置函数: https://docs.python.org/3/library/functions.html
+
+
 2.在 python交互模式下，通过 import 可以检查一个模块是否存在
 当我们试图加载一个模块时，Python会在指定的路径下搜索对应的.py文件，如果找不到，就会报错.
 (llm) PS C:\VsCode\py\03module> python
