@@ -1,0 +1,7 @@
+# Python 3.11 兼容版本
+# C:\VsCode\py\.venv\Lib\site-packages\requests\__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (7.1.0)/charset_normalizer (3.4.5) doesn't match a supported version!
+
+pillow>=10.0.0,<11
+requests>=2.31.0
+chardet>=5.0.0,<6
+psutil>=5.9.0
