@@ -10,8 +10,8 @@ def test_os():
     # print(os.environ.get('key', 'default'))
 
     """
-    查看当前目录的绝对路径
-    返回的绝对路径会精确到你当前所在的最后一级文件夹
+    当前工作目录
+    依赖于程序从哪里启动
     """
     path = os.path.abspath('.')
     print(path)  # C:\VsCode\py
