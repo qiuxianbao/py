@@ -74,7 +74,7 @@ Installed Python 3.11.14 in 34.08s
 ```shell
 # 进入到项目根目录，创建虚拟环境
 
-PS C:\VsCode\hello-agents> uv venv --pyton 3.11
+PS C:\VsCode\hello-agents> uv venv --python 3.11
 Using CPython 3.11.14
 Creating virtual environment at: .venv
 Activate with: .venv\Scripts\activate
