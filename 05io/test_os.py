@@ -39,6 +39,14 @@ def test_os():
     print([x for x in os.listdir('.') if os.path.isdir(x)])
     print([x for x in os.listdir('.') if os.path.isfile(x) and os.path.splitext(x)[1] == '.py'])
 
+    # C:\VsCode\py\05io
+    dirname = os.path.dirname(__file__)
+    print(dirname)
+
+    #
+    server_script = os.path.join(dirname, "test.txt")
+    print(server_script)
+
 
 def _main():
     test_os()
