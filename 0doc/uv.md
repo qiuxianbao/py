@@ -116,3 +116,23 @@ PS C:\VsCode\hello-agents\code\chapter4> uv run .\test_llm_client.py
 
 ```
 
+```shell
+# 初始化项目
+uv init my-project --python 3.11
+
+# 验证版本
+uv run python --version                                  
+Python 3.11.14
+
+# 进入目录
+cd my-project
+
+# 添加依赖
+uv add requests
+
+# 添加开发依赖
+uv add --dev pytest
+
+# 同步环境
+uv sync
+```
