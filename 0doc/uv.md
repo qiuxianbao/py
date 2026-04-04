@@ -133,6 +133,9 @@ uv add requests
 # 添加开发依赖
 uv add --dev pytest
 
+# 查看某个特定包
+uv pip show requests
+
 # 同步环境
 uv sync
 ```
