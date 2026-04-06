@@ -2,6 +2,7 @@
 import argparse
 import os
 from collections import namedtuple, deque, Counter, defaultdict, OrderedDict, ChainMap
+from typing import Dict
 
 
 def test_name_tuple():
@@ -102,6 +103,29 @@ def test_counter():
     print(c)
 
 
+def majority_vote_cn(votes: Dict[str, str]) -> tuple[str, int]:
+    """中文版多数投票统计"""
+    if not votes:
+        return "无人", 0
+
+    vote_counts = Counter(votes.values())  # 投票
+    most_voted = vote_counts.most_common(1)[0]
+
+    return most_voted[0], most_voted[1]
+
+
+def test_counter_most_common():
+    votes = {
+        "张三": "Python",
+        "李四": "Java",
+        "王五": "Python",
+        "赵六": "Go",
+        "孙七": "Python",
+        "周八": "Java"
+    }
+    print(majority_vote_cn(votes))
+
+
 def test_last_updated_ordered_dict():
     fifo_dict = LastUpdatedOrderedDict(3)
     fifo_dict['a'] = 1
@@ -160,9 +184,10 @@ def _main():
     # test_name_tuple()
     # test_deque()
     # test_dict()
-    test_chain_map()
+    # test_chain_map()
     # test_last_updated_ordered_dict()
     # test_counter()
+    test_counter_most_common()
 
 
 if __name__ == '__main__':
