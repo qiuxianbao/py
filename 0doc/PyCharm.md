@@ -21,7 +21,8 @@ jupyter notebook stop
 | 查找文件     | `Shift`双击            |
 | 上下移动     | `alt + Shift + 上下箭头` |
 | 批量模式     | `alt + Shift + 鼠标拖拽` |
-| 查找文本     | `Ctrl + Shift + R`   |
+| 替换文本     | `Ctrl + Shift + R`   |
+| 查找文本     | `Ctrl + Shift + F`   |
 | 切换大小写    | `Ctrl + Shift + U`   |
 | 返回上一个位置  | `Ctrl + alt + 左右箭头`  |
 | 生成变量     | `Ctrl + alt + V`     |
