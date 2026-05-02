@@ -58,7 +58,8 @@ aiohttp 适合：
 
 Java 开发者理解指南：
   Flask    → 轻量级 Servlet + Tomcat
-  FastAPI  → Spring Boot + Swagger + Validation
+  FastAPI  → Spring Boot + Swagger + Validation（适用于边缘部署、微服务、轻量API）
+  Django  → Spring Boot全家桶（ORM + 后台、安全、模板、授权内置），开箱即用（适用于带管理后台、用户权限的完整系统）内置后台
   aiohttp  → Netty + Reactor 模式
 
 """
