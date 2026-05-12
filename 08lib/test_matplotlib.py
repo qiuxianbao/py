@@ -29,7 +29,7 @@ from matplotlib.image import imread
 
 #(dl) PS C:\VsCode\py> python .\test_matplotlib.py
 # 命令在哪里执行，哪里就是根目录
-img = imread('images/matplotlib/deepseek.png')
+img = imread('../images/matplotlib/deepseek.png')
 
 plt.imshow(img)
 plt.show()
