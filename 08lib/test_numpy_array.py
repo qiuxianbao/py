@@ -9,6 +9,8 @@ Python则承担“中间人”的角色，负责调用那些用 C/C++写的程�
 """
 数学上将一维数组称为向量，将二维数组称为矩阵。另外，可以将一般化之后的向量或矩阵等统称为张量（tensor）
 """
+
+
 def test_array_one_dim():
     # 一维数组
     print("######### demo1：一维数组 np.array #########")
@@ -99,7 +101,7 @@ def test_array_slip():
 
     # 矩阵变平转数组
     X = X.flatten()
-    print(X)    # [51 55 14 19  0  4]
+    print(X)  # [51 55 14 19  0  4]
 
     print(X[np.array([0, 1, 2])])
 
@@ -144,6 +146,43 @@ def test_array_algorithms():
     # print(np.dot(a, b)) #37
 
     print("######### 点积(矩阵 dot 向量) np.dot #########")
+    """
+    # 计算公式
+    ## 1.向量点积 (两两相乘 再 相加)
+    对于两个 n 维向量 a 和 b：
+    a = [a₁, a₂, ..., aₙ]
+    b = [b₁, b₂, ..., bₙ]
+    
+    a · b = a₁b₁ + a₂b₂ + ... + aₙbₙ = Σ(aᵢ × bᵢ)
+    
+    ## 2.矩阵与向量点积
+    A (m×n) · b (n×1) = c (m×1)
+    
+    例如：
+    ┌1  2┐   ┌7┐   ┌1×7 + 2×8┐   ┌23┐
+    │3  4│ · │8│ = │3×7 + 4×8│ = │53│
+    └5  6┘         └5×7 + 6×8┘   └83┘
+    
+    ## 3.矩阵与矩阵点积
+    C = A (m×n) · B (n×p) → C (m×p)
+    C[i,j] = Σ(A[i,k] × B[k,j])  for k=0 to n-1
+
+    # 几何意义
+            b
+           ↗
+          /|
+         / |
+        /  |
+       /θ  |
+      a----→
+    
+    a · b = |a| × |b| × cos(θ)
+    
+    # 实际应用：
+    相似度计算：余弦相似度 = (a·b) / (|a|×|b|)
+    投影长度：向量 a 在 b 上的投影 = (a·b) / |b|
+    判断方向关系：点积正负判断前后/左右关系
+    """
     A = np.array([[1, 2], [3, 4], [5, 6]])
     B = np.array([7, 8])
 
@@ -152,6 +191,47 @@ def test_array_algorithms():
     # [23 53 83]
     print(np.dot(A, B))
 
+    print("######### 差积(矩阵 cross 向量) np.cross #########")
+    """
+    # 差积（仅用于3D向量）
+    ## 计算公式
+    a = [a₁, a₂, a₃]
+    b = [b₁, b₂, b₃]
+    
+    a × b = [a₂b₃ - a₃b₂,  a₃b₁ - a₁b₃,  a₁b₂ - a₂b₁]
+    
+    行列式形式（便于记忆）：
+            | i   j   k  |
+    a × b = | a₁  a₂  a₃ |
+            | b₁  b₂  b₃ |
+    
+    = i(a₂b₃ - a₃b₂) - j(a₁b₃ - a₃b₁) + k(a₁b₂ - a₂b₁)
+    
+    ## 几何意义
+                a × b (垂直于纸面向外)
+                ↑
+                |
+                |
+        b ↗    /|
+          \   / |
+           \ /  |
+            O---→ a
+            
+    a × b 垂直于 a 和 b 构成的平面
+    
+    核心特性：
+    1.方向：垂直于 a 和 b 所在的平面，遵循右手定则
+        右手四指从 a 转向 b，拇指指向即为 a×b 方向
+    2.模长：|a × b| = |a| × |b| × sin(θ)
+        等于以 a、b 为邻边的平行四边形面积
+    3.反交换律：a × b = -(b × a) （方向相反）
+    
+    """
+    a = np.array([3, 5, 2])
+    b = np.array([1, 4, 7])
+
+    # print(np.cross(a, b))  # [27, -19, 7]
+
     # 投影
     def get_projection(a, b):
         return a.dot(b) * 1.0 * b / b.dot(b)
@@ -159,11 +239,6 @@ def test_array_algorithms():
     # a = np.array([1, 2])
     # b = np.array([2, 2])
     # print(get_projection(a, b))  # [1.5  1.5]
-
-    # 差积
-    a = np.array([3, 5, 2])
-    b = np.array([1, 4, 7])
-    # print(np.cross(a, b))  # [27, -19, 7]
 
     a = np.array([[1, 2]])
     # [[1]
