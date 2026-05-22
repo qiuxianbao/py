@@ -1,11 +1,12 @@
-
 # UV教程-Python 包与环境管理工具
 
 参考资料：
 > [uv](https://uv.doczh.com/)
 
 ---
+
 ## 安装
+
 ```shell
 # 在 Windows 上安装
   
@@ -18,7 +19,6 @@ Installing to C:\Users\admin\.local\bin
 everything's installed!
 ```
 
-
 ```shell
 # 查看可用的 Python 版本
 
@@ -27,7 +27,9 @@ uv 0.10.2 (a788db7e5 2026-02-10)
 ```
 
 ---
+
 ## 管理 Python 版本
+
 ```shell
 # 安装特定版本的 Python
 说明：
@@ -69,7 +71,12 @@ Installed Python 3.11.14 in 34.08s
 ```
 
 ---
+
 ## 使用
+
+### 环境
+
+#### 手动创建虚拟环境
 
 ```shell
 # 进入到项目根目录，创建虚拟环境
@@ -89,32 +96,7 @@ uv python pin 3.11
 
 ```
 
-```shell
-# 安装依赖包
-(hello-agents) PS C:\VsCode\hello-agents> uv pip install "hello-agents[all]==0.2.2"
-⠼ python-dotenv==1.2.1
-
-uv pip install -r requirements.txt
-```
-
-```shell
-# 列出已安装包及其版本
-PS C:\VsCode\hello-agents> uv pip freeze                            
-a2a-sdk==0.3.22
-
-```
-
-```shell
-#显示 uv 安装的 Python 版本路径
-PS C:\VsCode\hello-agents> uv python dir         
-C:\Users\admin\AppData\Roaming\uv\python
-```
-
-```shell
-# 运行脚本
-PS C:\VsCode\hello-agents\code\chapter4> uv run .\test_llm_client.py
-
-```
+#### 初始化新项目
 
 ```shell
 # 初始化项目
@@ -138,4 +120,52 @@ uv pip show requests
 
 # 同步环境
 uv sync
+```
+
+### 使用已存在项目
+
+```shell
+# 默认会自动创建.venv目录自动安装包
+uv sync
+```
+
+### 其他操作
+
+```shell
+# 安装依赖包
+(hello-agents) PS C:\VsCode\hello-agents> uv pip install "hello-agents[all]==0.2.2"
+⠼ python-dotenv==1.2.1
+
+uv pip install -r requirements.txt
+```
+
+```shell
+# 列出已安装包及其版本
+PS C:\VsCode\hello-agents> uv pip freeze                            
+a2a-sdk==0.3.22
+
+```shell
+# 查看包依赖
+uv tree --package langchain-openai
+```
+
+```shell
+#显示 uv 安装的 Python 版本路径
+PS C:\VsCode\hello-agents> uv python dir         
+C:\Users\admin\AppData\Roaming\uv\python
+```
+
+```shell
+# 运行脚本
+PS C:\VsCode\hello-agents\code\chapter4> uv run .\test_llm_client.py
+
+```
+
+```shell
+# 典型工作流
+改 pyproject.toml（加/删/改依赖）
+    ↓
+uv lock          # 重新解析，更新 uv.lock
+    ↓
+uv sync          # 按 uv.lock 安装到 .venv
 ```
