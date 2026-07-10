@@ -73,8 +73,28 @@ def test_np_where():
         print(f"  簇0第{i + 1}个元素 -> 原数组第{idx}个位置")
 
 
+def test_np_argmax():
+    """
+    寻找最大值的索引位置
+    :return:
+    """
+    # 3个类别的预测得分（或概率）
+    scores = np.array([0.15, 0.72, 0.13])
+
+    # 寻找最大值的索引
+    best_class = np.argmax(scores)
+
+    print("最大值的索引位置是:", best_class)
+    # 输出: 1  （因为 0.72 最大，排在索引 1 的位置）
+
+    # 映射回具体标签
+    labels = ["科技", "体育", "娱乐"]
+    print("预测的类别是:", labels[best_class])
+
+
 def _main():
-    test_np_where()
+    # test_np_where()
+    test_np_argmax()
 
 
 if __name__ == '__main__':
