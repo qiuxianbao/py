@@ -1,13 +1,3 @@
-
-# 书籍
-* 深度学习入门：基于Python的理论与实现 (斋藤康毅)
-
-# 环境
-* Python 3.11.13
-
-# 命令
-jupyter notebook stop
-
 # PyCharm 快捷键
 
 | 功能描述     | 快捷键组合                |
