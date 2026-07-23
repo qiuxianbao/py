@@ -43,9 +43,9 @@ def test_array_two_dim():
     #  [3 4]]
     print(A)
     # 2
-    print(A.ndim)
+    print(A.ndim)  # 维度
     # (2, 2)
-    print(A.shape)
+    print(A.shape)  # 形状
     # int64
     print(A.dtype)
 
@@ -130,7 +130,16 @@ def test_array_exp():
 
 
 def test_array_algorithms():
-    # 向量
+    print("######### 点积-(向量 dot 向量) np.dot #########")
+    """
+    # 计算公式
+    ## 1.向量点积 (两两相乘 再 相加)
+    对于两个 n 维向量 a 和 b：
+    a = [a₁, a₂, ..., aₙ]
+    b = [b₁, b₂, ..., bₙ]
+
+    a · b = a₁b₁ + a₂b₂ + ... + aₙbₙ = Σ(aᵢ × bᵢ)
+    """
     # a = np.array([-1, 2])
     # b = np.array([3, 1])
 
@@ -139,22 +148,15 @@ def test_array_algorithms():
     # print(a * 3)  #[-3  6]
 
     # 点积
-    # a = np.array([3, 5, 2])
-    # b = np.array([1, 4, 7])
+    a = np.array([3, 5, 2])
+    b = np.array([1, 4, 7])
 
     # print(a.dot(b))  # 37
-    # print(np.dot(a, b)) #37
+    print(np.dot(a, b))  # 37
 
-    print("######### 点积(矩阵 dot 向量) np.dot #########")
+    print("######### 点积-(矩阵 dot 向量) np.dot #########")
     """
     # 计算公式
-    ## 1.向量点积 (两两相乘 再 相加)
-    对于两个 n 维向量 a 和 b：
-    a = [a₁, a₂, ..., aₙ]
-    b = [b₁, b₂, ..., bₙ]
-    
-    a · b = a₁b₁ + a₂b₂ + ... + aₙbₙ = Σ(aᵢ × bᵢ)
-    
     ## 2.矩阵与向量点积
     A (m×n) · b (n×1) = c (m×1)
     
@@ -184,10 +186,25 @@ def test_array_algorithms():
     判断方向关系：点积正负判断前后/左右关系
     """
     A = np.array([[1, 2], [3, 4], [5, 6]])
+
     B = np.array([7, 8])
+    print(B.shape)
 
     # ValueError: shapes (2,) and (3,2) not aligned: 2 (dim 0) != 3 (dim 0)
     # print(np.dot(B, A))
+
+    """
+    一维数组 B = np.array([7, 8]) 具有特殊的灵活性, 它的 shape 是 (2,)
+    它【不是】行向量（shape 应该是 (1, 2)）
+    也【不是】列向量（shape 应该是 (2, 1)），它只是一个纯粹的一维数组（Vector）
+
+    当它放在不同的位置时，NumPy 会自动将其视作不同的维度，
+    (1) 放在右边时：视作【列向量】（维度 2 x 1）参与计算
+    (2) 放在左边时：视作行向量（维度 1 x 2）
+
+    np.dot(A, B)的计算结果确实是列向量[[23],[53],[83]],维度为 (3, 1)
+    计算完成后，NumPy 会自动把结果的最后一个维度压缩掉，重新还原成一维数组。所以它的 shape 变成了 (3,)
+    """
     # [23 53 83]
     print(np.dot(A, B))
 
